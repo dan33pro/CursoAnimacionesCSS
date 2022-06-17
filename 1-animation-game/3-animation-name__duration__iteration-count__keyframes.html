@@ -200,6 +200,29 @@
             height: 10%;
             border-radius: 50%;
             background: black;
+
+            animation-name: parpadeo;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes parpadeo {
+            /* from {}
+            to {} */
+
+            0% {
+                height: 10%;
+            }
+
+            5% {
+                transform: translate(0px, 5%);
+                height: 1px;
+            }
+
+            10% {
+                transform: translate(0px, 0px);
+                height: 10%;
+            }
         }
 
         .earth {

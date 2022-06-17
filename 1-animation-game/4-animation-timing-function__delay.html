@@ -20,7 +20,22 @@
             place-items: center;
         }
 
+        input:checked {
+            counter-increment: score;
+        }
+
+        .total-count {
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .total-count::after {
+            content: counter(score);
+        }
+
         .phone {
+            counter-reset: score;
+
             position: relative;
             border: 8px solid black;
             border-radius: 40px;
@@ -44,6 +59,21 @@
             height: 77%;
             width: 20.569%;
             right: calc(50% + 10px);
+
+            animation-name: bunny;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+
+        .layer-1 input[type=checkbox],
+        .layer-2 input[type=checkbox]{
+            position: absolute;
+            width: 100%;
+            height: 13%;
+            appearance: none;
+            cursor: pointer;
+            z-index: 2;
         }
 
         .layer-2 {
@@ -51,6 +81,12 @@
             height: 77%;
             width: 20.569%;
             left: calc(50% + 10px);
+
+            animation-name: bunny;
+            animation-duration: 1s;
+            animation-delay: 0.5s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
         }
 
         .layer-3 {
@@ -71,6 +107,20 @@
             left: 8%;
             width: 20.569%;
             height: 57%;
+
+            animation-name: bunny;
+            animation-duration: 1s;
+            animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation-iteration-count: infinite;
+        }
+
+        .layer-4 input[type=checkbox]{
+            position: absolute;
+            width: 100%;
+            height: 17.56%;
+            appearance: none;
+            cursor: pointer;
+            z-index: 2;
         }
 
         .layer-5 {
@@ -88,6 +138,36 @@
             right: 12.5%;
             width: 20.569%;
             height: 37%;
+
+            animation-name: bunny;
+            animation-duration: 1s;
+            animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation-iteration-count: infinite;
+        }
+
+        .layer-6 input[type=checkbox]{
+            position: absolute;
+            width: 100%;
+            height: 27.03%;
+            appearance: none;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        @keyframes bunny {
+            0% {
+
+            }
+
+            25% {
+                transform: translateY(80px);
+                /* bottom: -80px; */
+            }
+
+            100% {
+                transform: translateY(0px);
+                /* bottom: 0; */
+            }
         }
 
         .layer-1,
@@ -134,6 +214,9 @@
             background: white;
         }
 
+        .bunny {
+            z-index: 1;
+        }
 
         .left-ear--outer,
         .right-ear--outer {
@@ -195,11 +278,34 @@
         }
 
         .head__eye {
-            margin: -10% 8% 0;
+            margin: -15% 8% 0;
             width: 10%;
             height: 10%;
             border-radius: 50%;
             background: black;
+
+            animation-name: parpadeo;
+            animation-duration: 500ms;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes parpadeo {
+            /* from {}
+            to {} */
+
+            0% {
+                height: 10%;
+            }
+
+            5% {
+                transform: translate(0px, 5%);
+                height: 1px;
+            }
+
+            100% {
+                transform: translate(0px, 0px);
+                height: 10%;
+            }
         }
 
         .earth {
@@ -305,6 +411,7 @@
 <body>
     <div class="phone">
         <div class="layer-1">
+            <input type="checkbox" name="" id="">
             <div class="bunny">
                 <div class="left-ear--outer ear-one"></div>
                 <div class="head one-head">
@@ -315,6 +422,7 @@
             </div>
         </div>
         <div class="layer-2">
+            <input type="checkbox" name="" id="">
             <div class="bunny">
                 <div class="left-ear--outer ear-one"></div>
                 <div class="head one-head">
@@ -357,6 +465,7 @@
             </div>
         </div>
         <div class="layer-4">
+            <input type="checkbox" name="" id="">
             <div class="bunny">
                 <div class="left-ear--outer ear-two"></div>
                 <div class="head two-head">
@@ -395,6 +504,7 @@
             </div>
         </div>
         <div class="layer-6">
+            <input type="checkbox" name="" id="">
             <div class="bunny">
                 <div class="left-ear--outer ear-three"></div>
                 <div class="head three-head">
@@ -441,6 +551,7 @@
             <div></div>
             <div></div>
         </div>
+        <h3 class="total-count">Score: </h3>
     </div>
 </body>
 
